@@ -1,66 +1,31 @@
 package com.web.automation.testcases;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.time.Duration;
-import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.web.automation.pages.LoginPage;
+import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
+import com.web.automation.pages.LoginPage;
 
-public class LoginPageTestCases {
+public class LoginPageTestCases extends InitiateDriver{
 
-	WebDriver driver = null;
 	HomePage homePage = null;
 	DataFormatter formatter;
 	LoginPage loginPage = null;
 	
-	@BeforeMethod
-	public void startBrowser() throws IOException {
-		Properties prop = new Properties();
-		prop.load(new FileInputStream(new File("./Properties/Application.properties")));
-		
-		String browser = prop.getProperty("Browser");
-		
-		if(browser.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
-		}
-		else if(browser.equalsIgnoreCase("edge")) {
-			driver = new EdgeDriver();
-		}
-		else if(browser.equalsIgnoreCase("firefox")) {
-			driver = new FirefoxDriver();
-		}
-		else {
-			driver = new ChromeDriver();
-		}
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(prop.getProperty("Implicity_wait"))));
-		driver.get(prop.getProperty("URL"));
-		
-		homePage = new HomePage(driver);
-	}
-	
 	@Test(priority=1)
 	public void navigateToCustomerLoginPage() {
+		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
 		String loginTitle = driver.getTitle();
 		Assert.assertEquals(loginTitle, "Account Login", "Not a Login Page!");
@@ -68,6 +33,7 @@ public class LoginPageTestCases {
 	
 	@Test(priority=2,dataProvider="Data")
 	public void loginWithValidCredentials(String email, String password) {
+		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
 		loginPage = new LoginPage(driver);
 		loginPage.enterEmail().sendKeys(email);
@@ -79,6 +45,7 @@ public class LoginPageTestCases {
 	
 	@Test(priority=3,dataProvider="Data")
 	public void loginWithInValidCredentials(String email, String password) {
+		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
 		loginPage = new LoginPage(driver);
 		loginPage.enterEmail().sendKeys(email);
@@ -90,6 +57,7 @@ public class LoginPageTestCases {
 	
 	@Test(priority=4)
 	public void loginWithEmptyCredentials() {
+		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
 		loginPage = new LoginPage(driver);
 		loginPage.loginButtonClick();
@@ -99,6 +67,7 @@ public class LoginPageTestCases {
 	
 	@Test(priority=5)
 	public void forgotPasswordWithValidEmail() {
+		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
 		loginPage = new LoginPage(driver);
 		loginPage.forgotPasswordClick();
@@ -147,13 +116,6 @@ public class LoginPageTestCases {
 		}
 		else {
 			return null;
-		}
-	}
-	
-	@AfterMethod
-	public void closeBrowser() {
-		if(driver!=null) {
-			driver.quit();
 		}
 	}
 }
