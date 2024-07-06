@@ -1,7 +1,6 @@
 package com.web.automation.testcases;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -13,13 +12,13 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.web.automation.basepages.DataProviderClass;
 import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
 import com.web.automation.pages.RegisterPage;
 
 public class RegisterPageTestCases extends InitiateDriver{
 	HomePage homePage = null;
-	DataFormatter formatter;
 	RegisterPage registerPage = null;
 	
 	@Test(priority=1)
@@ -80,30 +79,13 @@ public class RegisterPageTestCases extends InitiateDriver{
 	}
 	
 	@DataProvider(name="Data")
-	public Object[][] dataProvider(Method met) throws IOException {
-		int rows;
-		int columns;
+	public Object[][] dataProvider(Method met) throws Exception {
 		Object[][] credentials = null;
 		if(met.getName().equalsIgnoreCase("registerAnAccount")|| met.getName().equalsIgnoreCase("registerWithAlreadyRegisteredEmail")) {
-			FileInputStream fileInput = new FileInputStream("./test-data/Users-Data.xlsx");
-			XSSFWorkbook workBook = new XSSFWorkbook(fileInput);
-			XSSFSheet sheet = workBook.getSheet("Register-Account");
-			rows = sheet.getLastRowNum();
-			columns = sheet.getRow(rows).getLastCellNum();
-			credentials = new Object[rows][columns];
-			for(int i=0;i<rows;i++) {
-				XSSFRow row = sheet.getRow(i+1);
-				for(int j=0;j<columns;j++) {
-					XSSFCell cell = row.getCell(j);
-					formatter = new DataFormatter();
-					credentials[i][j] = formatter.formatCellValue(cell);
-				}
-			}
-			return credentials;
+			credentials = DataProviderClass.dataProviderMethod("Register-Account");
 		}
-		else {
-			return null;
-		}
+		return credentials;
+		
 	}
 	
 }
