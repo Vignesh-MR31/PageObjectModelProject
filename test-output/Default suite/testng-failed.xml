@@ -5,9 +5,9 @@
     <classes>
       <class name="com.web.automation.testcases.RegisterPageTestCases">
         <methods>
-          <include name="closeBrowser"/>
           <include name="startBrowser"/>
-          <include name="invalidRegisterAccount"/>
+          <include name="registerAnAccount" invocation-numbers="0 1"/>
+          <include name="closeBrowser"/>
         </methods>
       </class> <!-- com.web.automation.testcases.RegisterPageTestCases -->
     </classes>

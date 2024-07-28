@@ -1,18 +1,13 @@
 package com.web.automation.testcases;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.web.automation.basepages.DataProviderClass;
 import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
 import com.web.automation.pages.LoginPage;
@@ -76,46 +71,14 @@ public class LoginPageTestCases extends InitiateDriver{
 	}
 	
 	@DataProvider(name="Data")
-	public Object[][] dataProvider(Method met) throws IOException {
-		int rows;
-		int columns;
+	public Object[][] dataProvider(Method met) throws Exception {
 		Object[][] credentials = null;
 		if(met.getName().equalsIgnoreCase("loginWithValidCredentials")) {
-			FileInputStream fileInput = new FileInputStream("./test-data/Users-Data.xlsx");
-			XSSFWorkbook workBook = new XSSFWorkbook(fileInput);
-			XSSFSheet sheet = workBook.getSheet("Valid-Users");
-			rows = sheet.getLastRowNum();
-			columns = sheet.getRow(rows).getLastCellNum();
-			credentials = new Object[rows][columns];
-			for(int i=0;i<rows;i++) {
-				XSSFRow row = sheet.getRow(i+1);
-				for(int j=0;j<columns;j++) {
-					XSSFCell cell = row.getCell(j);
-					formatter = new DataFormatter();
-					credentials[i][j] = formatter.formatCellValue(cell);
-				}
-			}
-			return credentials;
+			credentials = DataProviderClass.dataProviderMethod("Valid-Users");
 		}
 		else if(met.getName().equalsIgnoreCase("loginWithInValidCredentials")) {
-			FileInputStream fileInput = new FileInputStream("./test-data/Users-Data.xlsx");
-			XSSFWorkbook workBook = new XSSFWorkbook(fileInput);
-			XSSFSheet sheet = workBook.getSheet("Invalid-Users");
-			rows = sheet.getLastRowNum();
-			columns = sheet.getRow(rows).getLastCellNum();
-			credentials = new Object[rows][columns];
-			for(int i=0;i<rows;i++) {
-				XSSFRow row = sheet.getRow(i+1);
-				for(int j=0;j<columns;j++) {
-					XSSFCell cell = row.getCell(j);
-					formatter = new DataFormatter();
-					credentials[i][j] = formatter.formatCellValue(cell);
-				}
-			}
-			return credentials;
+			credentials = DataProviderClass.dataProviderMethod("Invalid-Users");
 		}
-		else {
-			return null;
-		}
+		return credentials;
 	}
 }
