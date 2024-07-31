@@ -12,10 +12,10 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.web.automation.basepages.DataProviderClass;
 import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
 import com.web.automation.pages.RegisterPage;
+import com.web.automation.utils.DataProviderClass;
 
 public class RegisterPageTestCases extends InitiateDriver{
 	HomePage homePage = null;

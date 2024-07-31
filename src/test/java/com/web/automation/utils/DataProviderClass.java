@@ -1,4 +1,4 @@
-package com.web.automation.basepages;
+package com.web.automation.utils;
 
 import java.io.FileInputStream;
 

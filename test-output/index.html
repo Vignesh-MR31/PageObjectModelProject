@@ -103,12 +103,12 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.web.automation.testcases.RegisterPageTestCases" class="method navigator-link" hash-for-method="registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)">registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.web.automation.testcases.RegisterPageTestCases" class="method navigator-link" hash-for-method="registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)">registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.web.automation.testcases.RegisterPageTestCases" class="method navigator-link" hash-for-method="registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)">registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.web.automation.testcases.RegisterPageTestCases" class="method navigator-link" hash-for-method="registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)">registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite -->
@@ -185,10 +185,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)">
-                  </a> <!-- registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes) -->
+                  <a name="registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)">
+                  </a> <!-- registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no) -->
                   <span class="method-name">registerAnAccount</span>
-                  <span class="parameters">(TesterVicky,M R,TesterVicky@gmail.com,9987654321,12345678,12345678,yes)</span>
+                  <span class="parameters">(TesterRuby,T,TesterRuby@gmail.com,8876543210,123456789,123456789,no)</span>
                   <div class="stack-trace">java.lang.AssertionError: account is not registered expected [Your Account Has Been Created!] but found [Register Account]
 	at com.web.automation.testcases.RegisterPageTestCases.registerAnAccount(RegisterPageTestCases.java:47)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
@@ -198,10 +198,10 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)">
-                  </a> <!-- registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no) -->
+                  <a name="registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)">
+                  </a> <!-- registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes) -->
                   <span class="method-name">registerAnAccount</span>
-                  <span class="parameters">(TesterRuby,T,TesterRuby@gmail.com,8876543210,123456789,123456789,no)</span>
+                  <span class="parameters">(TesterVicky,M R,TesterVicky@gmail.com,9987654321,12345678,12345678,yes)</span>
                   <div class="stack-trace">java.lang.AssertionError: account is not registered expected [Your Account Has Been Created!] but found [Register Account]
 	at com.web.automation.testcases.RegisterPageTestCases.registerAnAccount(RegisterPageTestCases.java:47)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
@@ -305,7 +305,7 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.web.automation.basepages.ListenersClass&quot;/&gt;
+    &lt;listener class-name=&quot;com.web.automation.utils.ListenersClass&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
@@ -352,49 +352,49 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(11);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'loginWithValidCredentials')
-data.setCell(0, 2, 'com.web.automation.testcases.LoginPageTestCases')
-data.setCell(0, 3, 2505);
+data.setCell(0, 1, 'registerAnAccount')
+data.setCell(0, 2, 'com.web.automation.testcases.RegisterPageTestCases')
+data.setCell(0, 3, 1855);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'registerAnAccount')
-data.setCell(1, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(1, 3, 1859);
+data.setCell(1, 1, 'loginWithValidCredentials')
+data.setCell(1, 2, 'com.web.automation.testcases.LoginPageTestCases')
+data.setCell(1, 3, 1766);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'registerAnAccount')
 data.setCell(2, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(2, 3, 1749);
+data.setCell(2, 3, 1754);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'registerWithAlreadyRegisteredEmail')
 data.setCell(3, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(3, 3, 1701);
+data.setCell(3, 3, 1752);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'registerWithAlreadyRegisteredEmail')
 data.setCell(4, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(4, 3, 1594);
+data.setCell(4, 3, 1673);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'navigateToCustomerLoginPage')
+data.setCell(5, 1, 'loginWithInValidCredentials')
 data.setCell(5, 2, 'com.web.automation.testcases.LoginPageTestCases')
-data.setCell(5, 3, 1133);
+data.setCell(5, 3, 1315);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'invalidRegisterAccount')
 data.setCell(6, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(6, 3, 1083);
+data.setCell(6, 3, 1171);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'loginWithInValidCredentials')
+data.setCell(7, 1, 'loginWithEmptyCredentials')
 data.setCell(7, 2, 'com.web.automation.testcases.LoginPageTestCases')
-data.setCell(7, 3, 1077);
+data.setCell(7, 3, 1082);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'loginWithEmptyCredentials')
+data.setCell(8, 1, 'forgotPasswordWithValidEmail')
 data.setCell(8, 2, 'com.web.automation.testcases.LoginPageTestCases')
-data.setCell(8, 3, 880);
+data.setCell(8, 3, 942);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'forgotPasswordWithValidEmail')
-data.setCell(9, 2, 'com.web.automation.testcases.LoginPageTestCases')
-data.setCell(9, 3, 744);
+data.setCell(9, 1, 'navigateToCustomerRegisterPage')
+data.setCell(9, 2, 'com.web.automation.testcases.RegisterPageTestCases')
+data.setCell(9, 3, 601);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'navigateToCustomerRegisterPage')
-data.setCell(10, 2, 'com.web.automation.testcases.RegisterPageTestCases')
-data.setCell(10, 3, 440);
+data.setCell(10, 1, 'navigateToCustomerLoginPage')
+data.setCell(10, 2, 'com.web.automation.testcases.LoginPageTestCases')
+data.setCell(10, 3, 393);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -432,138 +432,138 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">navigateToCustomerLoginPage</span>
-                <span class="method-start">7137 ms</span>
+                <span class="method-start">3127 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">8292 ms</span>
+                <span class="method-start">3524 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">10308 ms</span>
+                <span class="method-start">4358 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">loginWithValidCredentials(Vickymr@gmail.com, 12345678)</span>
-                <span class="method-start">12404 ms</span>
+                <span class="method-start">6703 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">14913 ms</span>
+                <span class="method-start">8471 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">15431 ms</span>
+                <span class="method-start">8741 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">loginWithInValidCredentials(Vickymr1@gmail.com, qwerty12345678)</span>
-                <span class="method-start">17908 ms</span>
+                <span class="method-start">11106 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">18990 ms</span>
+                <span class="method-start">12426 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">19160 ms</span>
+                <span class="method-start">12626 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">loginWithEmptyCredentials</span>
-                <span class="method-start">21296 ms</span>
+                <span class="method-start">15179 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">22182 ms</span>
+                <span class="method-start">16262 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">22347 ms</span>
+                <span class="method-start">16458 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">forgotPasswordWithValidEmail</span>
-                <span class="method-start">24483 ms</span>
+                <span class="method-start">18942 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">25230 ms</span>
+                <span class="method-start">19887 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.web.automation.testcases.RegisterPageTestCases</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">25430 ms</span>
+                <span class="method-start">20084 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">navigateToCustomerRegisterPage</span>
-                <span class="method-start">27476 ms</span>
+                <span class="method-start">22623 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">27918 ms</span>
+                <span class="method-start">23225 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">28143 ms</span>
+                <span class="method-start">23444 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">registerAnAccount(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)</span>
-                <span class="method-start">30242 ms</span>
+                <span class="method-start">25790 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">32106 ms</span>
+                <span class="method-start">27812 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">32285 ms</span>
+                <span class="method-start">28021 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">registerAnAccount(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)</span>
-                <span class="method-start">34417 ms</span>
+                <span class="method-start">30367 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">36168 ms</span>
+                <span class="method-start">32330 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">36397 ms</span>
+                <span class="method-start">32548 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">invalidRegisterAccount</span>
-                <span class="method-start">38553 ms</span>
+                <span class="method-start">34849 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">39638 ms</span>
+                <span class="method-start">36022 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">39870 ms</span>
+                <span class="method-start">36271 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">registerWithAlreadyRegisteredEmail(TesterVicky, M R, TesterVicky@gmail.com, 9987654321, 12345678, 12345678, yes)</span>
-                <span class="method-start">42114 ms</span>
+                <span class="method-start">38738 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">43711 ms</span>
+                <span class="method-start">40413 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">43916 ms</span>
+                <span class="method-start">40674 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">registerWithAlreadyRegisteredEmail(TesterRuby, T, TesterRuby@gmail.com, 8876543210, 123456789, 123456789, no)</span>
-                <span class="method-start">46040 ms</span>
+                <span class="method-start">43146 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">47744 ms</span>
+                <span class="method-start">44899 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<listeners>
-		<listener class-name="com.web.automation.basepages.ListenersClass"></listener>
+		<listener class-name="com.web.automation.utils.ListenersClass"></listener>
 	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>

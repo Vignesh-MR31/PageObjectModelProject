@@ -7,10 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.web.automation.basepages.DataProviderClass;
 import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
 import com.web.automation.pages.LoginPage;
+import com.web.automation.utils.DataProviderClass;
 
 public class LoginPageTestCases extends InitiateDriver{
 
