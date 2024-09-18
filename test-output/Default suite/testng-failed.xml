@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.web.automation.testcases.RegisterPageTestCases">
+      <class name="com.web.automation.testcases.SearchItemTestCases">
         <methods>
           <include name="startBrowser"/>
-          <include name="registerAnAccount" invocation-numbers="0 1"/>
           <include name="closeBrowser"/>
+          <include name="verifyTheItemFiltered" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.web.automation.testcases.RegisterPageTestCases -->
+      </class> <!-- com.web.automation.testcases.SearchItemTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

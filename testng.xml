@@ -8,6 +8,7 @@
 		<classes>
 			<class name="com.web.automation.testcases.LoginPageTestCases" />
 			<class name="com.web.automation.testcases.RegisterPageTestCases" />
+			<class name="com.web.automation.testcases.SearchItemTestCases" />
 		</classes>
 	</test> <!--
 	Test -->

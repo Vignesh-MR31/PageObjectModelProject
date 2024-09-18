@@ -2,6 +2,8 @@ package com.web.automation.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,6 +25,7 @@ public class ListenersClass implements ITestListener{
 	@Override
 	public void onStart(ITestContext context) {
 		extentReport = ExtentReportClass.generateExtentReport();
+		System.out.println("Test");
 	}
 
 	@Override
@@ -40,6 +43,9 @@ public class ListenersClass implements ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 		WebDriver driver = null;
+		LocalDateTime now = LocalDateTime.now(); // Get current date and time
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");// Define a formatter for the date-time
+		String formattedTimestamp = now.format(formatter);// Format the current date-time
 		
 		try {
 			driver = (WebDriver)result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
@@ -48,7 +54,7 @@ public class ListenersClass implements ITestListener{
 		}
 		TakesScreenshot screen  = (TakesScreenshot)driver;
 		File srcFile = screen.getScreenshotAs(OutputType.FILE);
-		String screenshotPath = System.getProperty("user.dir")+"/test-reports/"+result.getName()+".png";
+		String screenshotPath = System.getProperty("user.dir")+"/test-reports/"+result.getName()+formattedTimestamp+".png";
 		File desFile = new File(screenshotPath);
 		try {
 			FileHandler.copy(srcFile, desFile);
