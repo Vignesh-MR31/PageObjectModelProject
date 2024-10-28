@@ -16,7 +16,7 @@ public class SearchItemTestCases extends InitiateDriver{
 	HomePage homePage = null;
 	SearchPage searchPage = null;
 	
-	@Test(dataProvider="Data")
+	@Test(dataProvider="dataProvider",dataProviderClass=DataProviderClass.class)
 	public void verifyTheItemFiltered(String product) throws InterruptedException {
 		homePage = new HomePage(driver);
 		homePage.searchInputTextBox().sendKeys(product);
@@ -29,14 +29,6 @@ public class SearchItemTestCases extends InitiateDriver{
 			Assert.assertEquals(actualResult, true);
 		}
 	}
-	
-	@DataProvider(name="Data")
-	public Object[][] dataProvider(Method met) throws Exception {
-		Object[][] credentials = null;
-		if(met.getName().equalsIgnoreCase("verifyTheItemFiltered")) {
-			credentials = DataProviderClass.dataProviderMethod("Products");
-		}
-		return credentials;
-	}
+	 
 
 }

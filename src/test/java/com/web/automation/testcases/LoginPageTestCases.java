@@ -26,7 +26,7 @@ public class LoginPageTestCases extends InitiateDriver{
 		Assert.assertEquals(loginTitle, "Account Login", "Not a Login Page!");
 	}
 	
-	@Test(priority=2,dataProvider="Data")
+	@Test(priority=2,dataProvider="dataProvider",dataProviderClass=DataProviderClass.class)
 	public void loginWithValidCredentials(String email, String password) {
 		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
@@ -38,7 +38,7 @@ public class LoginPageTestCases extends InitiateDriver{
 		Assert.assertEquals(myAccountPage, "My Account", "Login failed");
 	}
 	
-	@Test(priority=3,dataProvider="Data")
+	@Test(priority=3,dataProvider="dataProvider",dataProviderClass=DataProviderClass.class)
 	public void loginWithInValidCredentials(String email, String password) {
 		homePage = new HomePage(driver);
 		homePage.myAccountClick().loginInClick();
@@ -69,16 +69,5 @@ public class LoginPageTestCases extends InitiateDriver{
 		String forgotPasswordPage = driver.getTitle();
 		Assert.assertEquals(forgotPasswordPage, "Forgot Your Password?", "Forgot Your Password is not displayed");
 	}
-	
-	@DataProvider(name="Data")
-	public Object[][] dataProvider(Method met) throws Exception {
-		Object[][] credentials = null;
-		if(met.getName().equalsIgnoreCase("loginWithValidCredentials")) {
-			credentials = DataProviderClass.dataProviderMethod("Valid-Users");
-		}
-		else if(met.getName().equalsIgnoreCase("loginWithInValidCredentials")) {
-			credentials = DataProviderClass.dataProviderMethod("Invalid-Users");
-		}
-		return credentials;
-	}
+	 
 }
