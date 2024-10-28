@@ -14,7 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class InitiateDriver {
-	protected WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void startBrowser() throws IOException {

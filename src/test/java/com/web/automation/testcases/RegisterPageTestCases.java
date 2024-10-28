@@ -12,10 +12,10 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.web.automation.basepages.DataProviderClass;
 import com.web.automation.basepages.InitiateDriver;
 import com.web.automation.pages.HomePage;
 import com.web.automation.pages.RegisterPage;
+import com.web.automation.utils.DataProviderClass;
 
 public class RegisterPageTestCases extends InitiateDriver{
 	HomePage homePage = null;
@@ -29,7 +29,7 @@ public class RegisterPageTestCases extends InitiateDriver{
 		Assert.assertEquals(registerTitle, "Register Account", "Not a Register Account Page!");
 	}
 	
-	@Test(priority=2,dataProvider="Data",enabled=true)
+	@Test(priority=2,dataProvider="dataProvider",dataProviderClass=DataProviderClass.class,enabled=true)
 	public void registerAnAccount(String firstName, String lastName, String email, String telephone, String password, String passwordConfirm, String subscribe){
 		homePage = new HomePage(driver);
 		homePage.myAccountClick().registerClick();
@@ -61,7 +61,7 @@ public class RegisterPageTestCases extends InitiateDriver{
 		Assert.assertEquals(registerPage.passwordError().getText(), "Password must be between 4 and 20 characters!", "No Error Message dislayed");	
 	}
 	
-	@Test(priority=4,dataProvider="Data")
+	@Test(priority=4,dataProvider="dataProvider",dataProviderClass=DataProviderClass.class)
 	public void registerWithAlreadyRegisteredEmail(String firstName, String lastName, String email, String telephone, String password, String passwordConfirm, String subscribe) {
 		homePage = new HomePage(driver);
 		homePage.myAccountClick().registerClick();
@@ -77,15 +77,6 @@ public class RegisterPageTestCases extends InitiateDriver{
 		registerPage.continueButton();
 		Assert.assertEquals(registerPage.warningMessageEmailAlreadyRegistered().getText(), "Warning: E-Mail Address is already registered!", "No Error Message dislayed");
 	}
-	
-	@DataProvider(name="Data")
-	public Object[][] dataProvider(Method met) throws Exception {
-		Object[][] credentials = null;
-		if(met.getName().equalsIgnoreCase("registerAnAccount")|| met.getName().equalsIgnoreCase("registerWithAlreadyRegisteredEmail")) {
-			credentials = DataProviderClass.dataProviderMethod("Register-Account");
-		}
-		return credentials;
-		
-	}
+	 
 	
 }

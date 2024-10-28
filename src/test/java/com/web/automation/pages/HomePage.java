@@ -14,6 +14,8 @@ public class HomePage {
 	private WebElement myAccount;
 	private WebElement loginIn;
 	private WebElement register;
+	private WebElement searchInputBox;
+	private WebElement searchButton;
 	
 	public HomePage myAccountClick() {
 		myAccount = driver.findElement(By.xpath("//span[contains(text(),'My Account')]"));
@@ -29,5 +31,15 @@ public class HomePage {
 	public void registerClick() {
 		register = driver.findElement(By.linkText("Register"));
 		register.click();
+	}
+	
+	public WebElement searchInputTextBox() {
+		searchInputBox = driver.findElement(By.xpath("//div[@id='search']/input"));
+		return searchInputBox;
+	}
+	
+	public void searchButton() {
+		searchButton = driver.findElement(By.className("input-group-btn"));
+		searchButton.click();
 	}
 }
