@@ -1,10 +1,7 @@
 package com.web.automation.testcases;
 
-import java.lang.reflect.Method;
-
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.web.automation.basepages.InitiateDriver;
