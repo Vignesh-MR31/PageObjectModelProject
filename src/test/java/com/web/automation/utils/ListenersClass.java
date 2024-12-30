@@ -54,14 +54,19 @@ public class ListenersClass implements ITestListener{
 		}
 		TakesScreenshot screen  = (TakesScreenshot)driver;
 		File srcFile = screen.getScreenshotAs(OutputType.FILE);
-		String screenshotPath = System.getProperty("user.dir")+"/test-reports/"+result.getName()+formattedTimestamp+".png";
-		File desFile = new File(screenshotPath);
+		String folderPath = System.getProperty("user.dir")+"/test-reports/";
+		File folder = new File(folderPath);
+		if(!folder.exists()) {
+			folder.mkdirs();
+		}
+		File desFile = new File(folder,result.getName()+formattedTimestamp+".png");
 		try {
 			FileHandler.copy(srcFile, desFile);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String screenshotPath = folderPath+result.getName()+formattedTimestamp+".png";
 		extentTest.addScreenCaptureFromPath(screenshotPath);
 		extentTest.log(Status.FAIL, result.getName()+" EXECUTION FAILED");
 	}
